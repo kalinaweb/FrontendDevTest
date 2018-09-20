@@ -14,8 +14,63 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         $(function () {
+            /* Анимация стрелок */
+            
+			var d = 0;
+			var t_sec = 0; // угол секунд
+			var t_min = 0; // угол минут
+			var t = 0;	// произвольный угол
+			
+			function clock() {
+				d = new Date();
+				var t_sec = 6*d.getSeconds();  //Определяем угол для секунд
+				var t_min = 6*(d.getMinutes() + (1/60)*d.getSeconds()); //Определяем угол для минут				
+				$(".arr_minute").css({transform: "rotate(".concat(t_sec).concat("deg)")}); // минутная стрелка движется по секундам
+				$(".arr_hour").css({transform: "rotate(".concat(t).concat("deg)")});
+				t+=40; //часовая стрелка движется в произвольном темпе
+			}
+			clock();
+			setInterval(clock, 1000);
+		
+			/* Анимация линии вокруг часов */
 
-        });
+			var ctx = document.getElementById("canvas_int");
+			var context = document.getElementById("canvas_int").getContext("2d");                            
+			var x = 272;                                         
+			var y = 272;   
+			var counterClockwise = false;
+
+			/*Настройки первой линии*/
+			var radius1 = 225;                                                  
+			var color1 = "#9fc6e7";                                                  
+			var startAngle1 = 1.33 * Math.PI;                                   
+			var endAngle1 = 1.33 * Math.PI;
+
+			/*Настройки второй линии*/
+			var radius2 = 255;
+			var color2 = "#2670ca";
+			var startAngle2 = 1.5 * Math.PI;                                   
+			var endAngle2 = 1.5 * Math.PI;     
+			
+			function drowArc(radius,start,end,color) {
+				context.beginPath();                                              
+				context.arc(x, y, radius, start, end, counterClockwise);
+				context.lineWidth = 25;			
+				context.strokeStyle = color;                                    
+				context.stroke();
+			}
+			
+			function drowAll() {
+				drowArc(radius1,startAngle1,endAngle1,color1);
+				if (endAngle1 < 10) endAngle1 += 0.01;
+				else {
+					drowArc(radius2,startAngle2,endAngle2,color2);
+					if (endAngle2 < 6.3) endAngle2 += 0.01;
+					else clearInterval(inter);
+				}				
+			}
+			var inter = setInterval(drowAll, 10);
+		});       
     </script>
 </head>
 
