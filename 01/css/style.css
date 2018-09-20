@@ -1,0 +1,227 @@
+* {
+	margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+#main {
+	width: 1024px;
+	height: 768px;
+	margin: auto;
+	position:relative;
+	background: url(../img/background.jpg) no-repeat;	
+}
+
+#header {
+	height: 211px;
+	background: url(../img/orange_line.png) no-repeat;
+	padding-left: 70px;
+	padding-top: 40px;
+}
+
+.graph {
+	padding-left: 70px;
+	margin-top: -90px;
+}
+
+.graph__img {
+	margin-left: 130px;
+}
+
+.graph__img_circle {	
+	width: 316px;
+	height: 316px;
+	border-radius: 50%;
+	background: #f2d5b7;
+	position: relative;
+	font-size: 60px;
+	color: #ffffff;
+}
+
+.graph__img_circle span {			
+	color: #ffffff;
+	position: absolute;
+    top: 50%;    
+}
+
+.graph__img_circle.allClients>span {		
+	top: 210px;
+	left: 190px;
+	font-size: 60px;
+}
+
+.kras {
+	width: 203px;
+	height: 203px;
+	background: #e71;
+	position: absolute;
+	left: 10px;
+	top: 30px;
+}
+
+.kras span {
+	font-size: 53px;
+	margin-top: -26px;
+	width: 100%;
+    text-align: center;
+}
+
+.nras {
+	width: 141px;
+	height: 141px;
+	background: #deb682;
+	position: absolute;
+	left: 165px;
+	top: 50px;
+}
+
+.nras span {
+	font-size: 40px;
+	margin-top: -20px;
+	width: 100%;
+    text-align: center;
+}
+
+.graph__controls {
+	
+}
+
+.graph__controls_line {
+	height: 75px;
+	position: relative;
+	display: table;
+}
+
+.graph__controls_line_label {
+	width: 115px;
+	height: 75px;
+	font-size: 24px;
+	color: #e71;	
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.labelKRAS.graph__controls_line_label, .labelNRAS.graph__controls_line_label {	
+	font-size: 28px;
+	padding-top: 10px;
+}
+
+.graph__controls_line_range {
+	width: 355px;
+	height: 17px;
+	background: #d4dced;
+	position: relative;
+	float: left;
+	margin-top: 35px;		
+}
+
+.graph__controls_line_angle {
+	width: 19px;
+	height: 17px;
+	position: absolute;
+	background: url(../img/range_angele_grey.png) right no-repeat;
+	right: 0px;
+}
+
+.graph__controls_line_range_track {
+	width: 135px;
+	height: 17px;
+	background: url(../img/range_angele_orange.png) no-repeat #deb682;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.rangeAllClients .graph__controls_line_range_track {
+	width: 355px;
+	background-color: #f2d5b7;
+}
+
+.rangeKRAS .graph__controls_line_range_track {
+	width: 205px;
+	background-color: #e71;
+}
+
+.graph__controls_line_range_roller {
+	width: 55px;
+	height: 70px;
+	position: absolute;
+	left: 80px;
+	top: -40px;
+}
+
+.rangeAllClients .graph__controls_line_range_roller {
+	left: 300px;	
+}
+
+.rangeKRAS .graph__controls_line_range_roller {
+	left: 150px;	
+}
+
+.graph__controls_line_range_roller_greyLBack {
+	width: 48px;
+	height: 31px;
+	background: url(../img/greyLBack.png) no-repeat;
+	position: absolute;
+	right: 0px;
+	bottom: -1px;	
+}
+
+.graph__controls_line_range_roller_greyDBack {
+	width: 53px;
+	height: 17px;
+	background: url(../img/greyDBack.png) no-repeat;
+	position: absolute;
+	right: 0px;
+	top: 40px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";  /* IE 8 */
+	filter: alpha(opacity=30); /* IE 5-7 */
+	-moz-opacity: 0.3; /* Netscape */
+	-khtml-opacity: 0.3;  /* Safari 1.x */
+	opacity: 0.3; /* Для остальных браузеров */	
+}
+
+.graph__controls_line_range_roller_orangeLBack {
+	width: 53px;
+	height: 17px;
+	background: url(../img/orangeLBack.png) no-repeat;
+	position: absolute;
+	right: 0px;
+	top: 40px;
+}
+
+.graph__controls_line_range_roller_orangeDBack {
+	width: 46px;
+	height: 31px;
+	background: url(../img/orangeDBack.png) no-repeat;
+	position: absolute;
+	right: 7px;
+	top: 32px;
+}
+
+.graph__controls_line_range_roller_count {
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	text-align: center;
+	font-size: 28px;
+	color: #d0691c;
+}
+
+
+/* Text styles */
+
+
+body {
+	font-family: "Arial Narrow";
+}
+
+h1 {
+	font-size: 32px;
+	color: #2d509b;
+	
+}
