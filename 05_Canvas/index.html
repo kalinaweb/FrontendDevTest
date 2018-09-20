@@ -32,7 +32,17 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         $(function () {
-           
+           var example = document.getElementById("screen"),
+	       ctx     = example.getContext('2d');
+           ctx.strokeRect(15, 15, 200, 100);
+           ctx.font = "22px Verdana";
+	   ctx.fillText("Hello World!", 45, 70);
+	   ctx.beginPath();
+           ctx.moveTo(10, 15);
+           ctx.lineTo(200, 150);
+	   ctx.strokeStyle = "#00369d";
+	   ctx.lineWidth = 2;
+           ctx.stroke();
         });
     </script>
 </body>
