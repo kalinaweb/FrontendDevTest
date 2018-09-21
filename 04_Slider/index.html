@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -33,7 +33,7 @@
             position: absolute;
             top: 578px;
             left: 168px;
-            width: 675px;
+            width: 650px;
             height: 53px;
             z-index: 3;
         }
@@ -46,7 +46,7 @@
             width: 53px;
             height: 53px;
             z-index: 400;
-            background-image: url(images/71/Layer4.png);
+            /*background-image: url(images/71/Layer4.png);*/
         }
         
         .Layer5 {
@@ -175,6 +175,18 @@
         .Peshki > div.after {
             display: block;
         }
+		
+		/* Ползунок */
+        .ui-slider .ui-slider-handle {
+	        position: absolute;
+	        z-index: 2;
+	        width: 53px;   /* Задаем нужную ширину */
+	        height: 53px;  /* и высоту */
+	        background: url(images/71/layer4.png) no-repeat; /* картинка изображающая ползунок */
+	        cursor: pointer;
+	        border:none;
+	        outline: none;
+        }
     </style>
 </head>
 
@@ -201,8 +213,25 @@
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="js/hammer.js"></script>
     <script>
-        $(function () {
-           
+        $(function () {			
+			var i=$( ".Peshki div" ).size(); 
+			var minRange = 0;
+			var maxRange = 10;
+			var stepSlider = (maxRange-minRange)/i;
+			$( ".parentSlider" ).slider({
+				range: "max",
+				min: minRange,
+				max: maxRange,
+				value: 0,
+				step: stepSlider,
+				slide: function( event, ui ) {
+					$( ".textFooter" ).html( ui.value );
+					$( ".Peshki div" ).hide();
+					for(var j=i; j>i-ui.value/stepSlider-1; --j) {
+						$( ".Peshki div" ).eq(j).show();							
+					}										
+				}
+			});			
         });
     </script>
 </body>
