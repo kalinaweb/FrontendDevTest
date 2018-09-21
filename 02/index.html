@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
@@ -7,18 +7,163 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title></title>
-    <link href="css/main.css" rel="stylesheet">>
+    <link href="css/main.css" rel="stylesheet">
+	<style>
+		div {
+			position: absolute;
+			-moz-border-radius: 10px; 
+			-webkit-border-radius: 10px; 
+			border-radius: 10px;
+		}
+
+		#elem1 {
+			width: 200px;
+			height: 300px;
+			left: 50px;
+			top: 50px;
+			background: #00369d;
+			-moz-transition: all 0.5s linear;
+			-webkit-transition: all 0.5s linear;
+			-o-transition: all 0.5s linear;
+			transition: all 0.5s linear;
+			opacity: 0.1;
+		}
+
+		#elem2 {
+			width: 150px;
+			height: 150px;
+			left: 400px;
+			top: 150px;
+			background: #5c009d;
+			-moz-transition: all 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+		}
+
+		#elem3 {
+			width: 300px;
+			height: 100px;
+			left: 300px;
+			top: 400px;
+			background: #f1ab25;
+			-moz-transition: all 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+		}
+
+		#elem4 {
+			width: 150px;
+			height: 200px;
+			left: 100px;
+			top: 500px;
+			background: #308634;
+			-moz-transition: all 0.2s ease-in-out;
+			-webkit-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+		}
+
+		#button1 {
+			width: 100px;
+			height: 70px;
+			left: 400px;
+			top: 50px;
+			background: #bd94b2;
+			display: table;
+			text-align:center;
+		}
+
+		#button2 {
+			width: 140px;
+			height: 70px;
+			left: 520px;
+			top: 50px;
+			background: #bd94b2;
+			display: table;
+			text-align:center;
+		}
+
+		#button3 {
+			width: 140px;
+			height: 70px;
+			left: 680px;
+			top: 50px;
+			background: #bd94b2;
+			display: table;
+			text-align:center;
+		}
+
+		span{
+			display: table-cell;
+			vertical-align: middle;
+			font-family: Arial;
+			font-size: 20px;
+			cursor: pointer;	
+		}
+
+		#button1:active ~ #elem1 {
+			-moz-transition: opacity 0.1s;
+			-webkit-transition: opacity 0.1s;
+			-o-transition: opacity 0.1s;
+			transition: opacity 0.1s;
+			opacity: 1;
+		}
+
+		#button1:active  ~ #elem2 {
+			-moz-transform: rotate(15deg);
+			-ms-transform: rotate(15deg); 
+			-webkit-transform: rotate(15deg); 
+			-o-transform: rotate(15deg);
+			transform: rotate(15deg);
+		}
+
+		#button1:active  ~ #elem3 {
+			transform: scale(1.5);
+			-webkit-transform: scale(1.5);
+			-o-transform: scale(1.5);
+			-moz-transform: scale(1.5);
+		}
+
+		#button1:active  ~ #elem4 {
+			transform: translate(350px,-350px);
+			-webkit-transform: translate(350px,-350px);
+			-o-transform: translate(350px,-350px);
+			-moz-transform: translate(350px,-350px);
+		}
+
+
+	</style>
 </head>
 <body>
     <div id="background">
-
+		<div id="button1"><span>Css Start</span></div>
+		<div id="button2"><span>jQuery Start</span></div>
+		<div id="button3"><span>Reset style</span></div>
+		<div id="elem1"></div>
+		<div id="elem2"></div>
+		<div id="elem3"></div>
+		<div id="elem4"></div>
     </div>
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script>
         $(function () {
-           
+           var deg=15;			
+			$('#button2').bind('click', function(){
+				$('#elem1').animate({opacity: "1"}, 300);
+				$('#elem2').css('-webkit-transform','rotate('+deg+'deg)')
+						   .css('-moz-transform','rotate('+deg+'deg)')
+						   .css('-ms-transform','rotate('+deg+'deg)')
+						   .css('transform','rotate('+deg+'deg)');
+				$('#elem3').animate({width: '+=150px', height:'+=50px', left: '225px', top: '375'}, 30);
+				$('#elem4').animate({left: '450px', top: '150px'}, 30);
+			});			
+			$('#button3').bind('click', function(){
+              location.reload();    
+            });
         });
     </script>
 </body>
